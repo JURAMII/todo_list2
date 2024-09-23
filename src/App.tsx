@@ -46,19 +46,11 @@ function App() {
     })
   }
 
-  const currentDate = new Date();
-  const options:any = {
-    weekday: "long",
-    month: "short",
-    day: "numeric",
-  };
-
   return (
     <div className="App">
       <div className="todo_wrap">
+      <h2>todo</h2>
         <div className="top">
-          <h2>my task</h2>
-          <p>{currentDate.toLocaleDateString("en-us", options)}</p>
           <List
             datas={datas}
             deleteTodo={deleteTodo}
