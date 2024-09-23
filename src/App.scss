@@ -1,0 +1,120 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+}
+
+
+
+.todo_wrap {
+    width: 500px;
+    background-color: #3A3F49;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    border-radius: 5px;
+    padding: 10px 15px 10px;
+}
+
+.top {
+    color: white;
+    padding: 20px 10px;
+
+    p {
+        padding-top: 10px;
+    }
+}
+
+/* list */
+.lists_wrap {
+    padding: 20px 0 10px 10px;
+}
+
+.lists {
+    width: 100%;
+    position: relative;
+}
+
+.todo {
+    display: inline-block;
+    padding-left: 10px;
+    color: #fff;
+}
+
+.list_btns {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+
+    img {
+        cursor: pointer;
+    }
+
+    span:last-child img {
+        margin-left: 13px;
+        width: 30px;
+    }
+
+}
+
+@mixin inputStyle {
+    width: 350px;
+        padding: 10px;
+        outline: none;
+        border-radius: 5px;
+}
+
+/* create */
+.create_wrap {
+    width: 100%;
+    background-color: #3A3F49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0 10px;
+
+    input {
+        @include inputStyle()
+    }
+}
+
+.addBtn {
+    padding: 8px;
+    background-color: #5FD7F6;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* edit */
+.edits {
+    position: relative;
+
+    input {
+        @include inputStyle();
+        color: #000;
+    }
+}
+
+.edit_btns {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    display: inline-block;
+
+    img {
+        width: 25px;
+        cursor: pointer;
+    }
+
+    span:last-child img {
+        margin-left: 15px;
+    }
+}
