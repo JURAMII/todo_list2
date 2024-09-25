@@ -1,14 +1,18 @@
 import { useState } from "react";
 import "../../App.scss";
+import { todoFuncType } from "../../App";
 
-export default function Create({ CreateTodo }) {
+export default function Create({ CreateTodo }:todoFuncType) {
+
+  const [addTodo, setAddTodo] = useState(true)
+
   const [inputs, setInputs] = useState({
     todo: "",
   });
 
   const { todo } = inputs;
 
-  function newTodo(e) {
+  function newTodo(e:any):void {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
@@ -21,14 +25,23 @@ export default function Create({ CreateTodo }) {
     setInputs({
       todo: "",
     });
+    setAddTodo(!addTodo)
+  }
+
+  function addTodoBtn(){
+    setAddTodo(!addTodo)
   }
 
   return (
-    <div className="create_wrap">
-      <input type="text" name="todo" value={todo} onChange={newTodo} />
-      <div onClick={createBtn} className="addBtn">
-        Add task
-      </div>
-    </div>
+    <>
+    {addTodo?
+    (<div className="newTaskBtn" onClick={addTodoBtn}>+ New Task</div>)
+    :(
+       <div className="create_wrap">
+       <input type="text" name="todo" value={todo} onChange={newTodo} />
+       <div onClick={createBtn} className="addBtn">Add task</div>
+     </div>
+    )}
+    </>
   );
 }

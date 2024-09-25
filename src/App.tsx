@@ -4,6 +4,21 @@ import Create from "./assets/component/create";
 import List from "./assets/component/list";
 import "./App.scss";
 
+
+export type TodoType = {
+    id: Number,
+    todo: string,
+    checks: boolean,
+    datas:[]
+}
+
+export type todoFuncType = {
+  CreateTodo(todo: string): TodoType,
+  deleteTodo(id:Number): TodoType,
+  updateTodo(id:Number, todo: string): TodoType,
+  markTodo(id:Number): TodoType,
+}
+
 function App() {
 
   const [state, dispatch] = useReducer(Reducer,Contents)

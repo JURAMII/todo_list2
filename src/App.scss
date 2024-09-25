@@ -13,10 +13,22 @@ li {
 $light_purple : #E3E9FF;
 $deep_purple : #AF7EEB;
 
+@mixin flex {
+    display: flex;
+    justify-content: center;
+}
+
 @mixin img24 {
     width: 24px;
     height: 24px;
 };
+
+@mixin inputStyle {
+    width: 300px;
+    padding: 10px;
+    outline: none;
+}
+
 
 .todo_wrap {
     width: 500px;
@@ -30,11 +42,14 @@ $deep_purple : #AF7EEB;
         text-align: center;
         padding: 10px 0;
         margin-bottom: 30px;
+        box-shadow: 0px 0px 5px $deep_purple;
     }
 }
 
 .top {
     background-color:#fff;
+    padding-bottom: 30px;
+    box-shadow: 0px 0px 5px #aaa;
 
     p {
         padding-top: 10px;
@@ -48,7 +63,6 @@ $deep_purple : #AF7EEB;
 }
 
 .lists {
-    width: 100%;
     position: relative;
 
     input[type="checkbox"] {
@@ -83,24 +97,30 @@ $deep_purple : #AF7EEB;
 
     span:last-child img {
         margin-left: 13px;
-        @include img24();
     }
 
 }
 
-@mixin inputStyle {
-    width: 350px;
-    padding: 10px;
-    outline: none;
+/* create */
+.newTaskBtn {
+       @include flex();
+       background-color: $deep_purple;
+       color: #fff;
+       font-weight: bold;
+       width: 150px;
+       padding: 10px;
+       border-radius: 20px;
+       cursor: pointer;
+       position: relative;
+       top: 50px;
+       box-shadow: 0px 0px 5px $deep_purple;
 }
 
-/* create */
 .create_wrap {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    @include flex();
     align-items: center;
-    padding: 30px 0 30px 20px;
+    padding-top: 30px;
 
     input {
         @include inputStyle();
@@ -108,7 +128,7 @@ $deep_purple : #AF7EEB;
 }
 
 .addBtn {
-    padding: 8px;
+    padding: 10px;
     background-color: $deep_purple;
     color: #fff;
     text-align: center;
@@ -137,7 +157,6 @@ $deep_purple : #AF7EEB;
     }
 
     span:last-child img {
-        @include img24();
         margin-left: 15px;
     }
 }

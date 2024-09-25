@@ -1,8 +1,13 @@
 import { Del, Edit, Check, Undo } from "../img/img";
 import "../../App.scss";
 import { useState } from "react";
+import { TodoType, todoFuncType } from "../../App";
 
-const Event = ({ data, deleteTodo, updateTodo, markTodo }) => {
+type todoProps = {
+  data: TodoType
+}
+
+const Event = ({data}:todoProps, {deleteTodo, updateTodo, markTodo }:todoFuncType) => {
   const [onUpdate, setOnUpdate] = useState(true);
 
   const [edits, setEdits] = useState({
@@ -92,18 +97,18 @@ const Event = ({ data, deleteTodo, updateTodo, markTodo }) => {
   );
 };
 
-export default function List({ datas, deleteTodo, updateTodo, markTodo }) {
+export default function List({ datas }:TodoType, { deleteTodo, updateTodo, markTodo }:todoFuncType) {
     
   return (
     <div>
       <ul>
         {datas.map((data) => (
           <Event
+            key={data.id}
             data={data}
             deleteTodo={deleteTodo}
             updateTodo={updateTodo}
             markTodo={markTodo}
-            key={data.id}
           />
         ))}
       </ul>
