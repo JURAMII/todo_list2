@@ -1,7 +1,11 @@
 import { useState } from "react";
 import "../../App.scss";
 
-export default function Create({ CreateTodo }) {
+type CreateProps = {
+  CreateTodo: (todo:string)=>void
+}
+
+export default function Create({ CreateTodo }:CreateProps) {
 
   const [addTodo, setAddTodo] = useState(true)
 
@@ -11,7 +15,7 @@ export default function Create({ CreateTodo }) {
 
   const { todo } = inputs;
 
-  function newTodo(e:any):void {
+  function newTodo(e:any) {
     const { name, value } = e.target;
     setInputs({
       ...inputs,

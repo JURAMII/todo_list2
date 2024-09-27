@@ -23,7 +23,7 @@ function App() {
     userId.current++
   },[todo])
 
-  const deleteTodo = (id:Number) => {
+  const deleteTodo = (id:Number|string) => {
     // console.log(id)
     dispatch({
       type: 'delete',

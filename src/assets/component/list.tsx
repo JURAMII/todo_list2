@@ -3,7 +3,8 @@ import "../../App.scss";
 import { useState } from "react";
 
 
-const Event = ({ data, deleteTodo, updateTodo, markTodo} ) => {
+
+const Event = ({data, deleteTodo, updateTodo, markTodo}:TodoProps) => {
 
   const [onUpdate, setOnUpdate] = useState(true);
 
@@ -32,7 +33,7 @@ const Event = ({ data, deleteTodo, updateTodo, markTodo} ) => {
     setOnUpdate(true);
   }
 
-  function changeTxt(e) {
+  function changeTxt(e:any) {
     const { name, value } = e.target;
 
     setEdits({
@@ -94,12 +95,27 @@ const Event = ({ data, deleteTodo, updateTodo, markTodo} ) => {
   );
 };
 
-export default function List({ datas, deleteTodo, updateTodo, markTodo }) {
+
+interface dataType {
+  id: number,
+  todo: string,
+  checks: boolean
+}
+
+type TodoProps = {
+  datas: dataType[],
+  deleteTodo: (id: number|string)=>void, 
+  updateTodo: (id:number, todo:string)=>void,
+  markTodo: (id: number)=>void,
+}
+
+
+export default function List({datas, deleteTodo, updateTodo, markTodo}:TodoProps) {
     
   return (
     <div>
       <ul>
-        {datas.map((data) => (
+        {datas.map((data)=>(
           <Event
             key={data.id}
             data={data}
