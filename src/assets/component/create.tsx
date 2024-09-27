@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "../../App.scss";
-import { todoFuncType } from "../../App";
 
-export default function Create({ CreateTodo }:todoFuncType) {
+export default function Create({ CreateTodo }) {
 
   const [addTodo, setAddTodo] = useState(true)
 

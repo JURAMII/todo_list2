@@ -1,13 +1,10 @@
 import { Del, Edit, Check, Undo } from "../img/img";
 import "../../App.scss";
 import { useState } from "react";
-import { TodoType, todoFuncType } from "../../App";
 
-type todoProps = {
-  data: TodoType
-}
 
-const Event = ({data}:todoProps, {deleteTodo, updateTodo, markTodo }:todoFuncType) => {
+const Event = ({ data, deleteTodo, updateTodo, markTodo} ) => {
+
   const [onUpdate, setOnUpdate] = useState(true);
 
   const [edits, setEdits] = useState({
@@ -97,7 +94,7 @@ const Event = ({data}:todoProps, {deleteTodo, updateTodo, markTodo }:todoFuncTyp
   );
 };
 
-export default function List({ datas }:TodoType, { deleteTodo, updateTodo, markTodo }:todoFuncType) {
+export default function List({ datas, deleteTodo, updateTodo, markTodo }) {
     
   return (
     <div>
