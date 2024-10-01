@@ -3,8 +3,21 @@ import "../../App.scss";
 import { useState } from "react";
 
 
+interface dataType {
+  id: any,
+  todo: string,
+  checks: boolean
+}
 
-const Event = ({data, deleteTodo, updateTodo, markTodo}:TodoProps) => {
+type EventProps = {
+  data: dataType,
+  deleteTodo: (id: number|string)=>void, 
+  updateTodo: (id:number, todo:string)=>void,
+  markTodo: (id: number)=>void,
+}
+
+const Event = ({data, deleteTodo, updateTodo, markTodo}:EventProps) => {
+
 
   const [onUpdate, setOnUpdate] = useState(true);
 
@@ -96,13 +109,7 @@ const Event = ({data, deleteTodo, updateTodo, markTodo}:TodoProps) => {
 };
 
 
-interface dataType {
-  id: number,
-  todo: string,
-  checks: boolean
-}
-
-type TodoProps = {
+type ListProps = {
   datas: dataType[],
   deleteTodo: (id: number|string)=>void, 
   updateTodo: (id:number, todo:string)=>void,
@@ -110,7 +117,7 @@ type TodoProps = {
 }
 
 
-export default function List({datas, deleteTodo, updateTodo, markTodo}:TodoProps) {
+export default function List({datas, deleteTodo, updateTodo, markTodo}:ListProps) {
     
   return (
     <div>
