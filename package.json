@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://juramii.github.io/new_todo_list/",
+  "homepage": "https://juramii.github.io/todo_list2/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
